@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposed Solution, Simple View, Template</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #FFFFFF;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    @media print { html, body { background: #FFFFFF !important; } }
+    svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+<!--
+  TEMPLATE, proposed solution simple view.
+  Business audience, vertical flow, one screen. Replace every <angle bracket> label.
+  Conventions: blue #1565C0 system steps, orange #E65100 AI intake, purple #6A1B9A AI judgment,
+  green #2E7D32 happy path and final outcome (outline for the outcome), yellow #F9A825 human gate,
+  red #C62828 rework loop. Every box: title line, one or two plain-language lines, small platform
+  caption at 65 percent opacity. Keep the language non-technical, the reader is the business owner.
+-->
+<svg width="1200" height="900" viewBox="0 0 1200 900"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="'Segoe UI', system-ui, sans-serif">
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#546E7A"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C62828"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#263238">&lt;Client&gt; &lt;Solution name&gt;, Proposed Solution</text>
+  <text x="600" y="66" text-anchor="middle" font-size="13" fill="#546E7A">&lt;One line: what comes in, what gets checked, who decides&gt;</text>
+
+  <!-- Entry -->
+  <rect x="380" y="100" width="440" height="90" rx="14" fill="#1565C0"/>
+  <text x="600" y="135" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">&lt;icon&gt;  &lt;How work arrives&gt;</text>
+  <text x="600" y="158" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;where it lands, one line&gt;</text>
+  <text x="600" y="177" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.65)">&lt;platform&gt;</text>
+
+  <line x1="600" y1="190" x2="600" y2="220" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Conversation / intake -->
+  <rect x="380" y="225" width="440" height="100" rx="14" fill="#E65100"/>
+  <text x="600" y="258" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">🤖  &lt;The agent's job in plain words&gt;</text>
+  <text x="600" y="281" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;what the user asks, what the agent gathers&gt;</text>
+  <text x="600" y="297" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;what the agent hands to the automation&gt;</text>
+  <text x="600" y="315" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.65)">Copilot Studio</text>
+
+  <line x1="600" y1="325" x2="600" y2="355" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Automatic check -->
+  <rect x="380" y="360" width="440" height="100" rx="14" fill="#1565C0"/>
+  <text x="600" y="393" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">⚙️  &lt;The automatic check&gt;</text>
+  <text x="600" y="416" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;the client's rule book, run the same way every time&gt;</text>
+  <text x="600" y="432" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;the rules, listed in plain words&gt;</text>
+  <text x="600" y="450" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.65)">Power Automate</text>
+
+  <line x1="600" y1="460" x2="600" y2="490" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Router -->
+  <rect x="380" y="495" width="440" height="90" rx="14" fill="#1565C0"/>
+  <text x="600" y="528" text-anchor="middle" font-size="15" font-weight="700" fill="#FFF">🚦  &lt;Pass or fail, what happens&gt;</text>
+  <text x="600" y="551" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">&lt;pass: the answer the user sees. fail: what gets listed&gt;</text>
+  <text x="600" y="570" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.65)">&lt;platform&gt;</text>
+
+  <line x1="600" y1="585" x2="600" y2="615" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Human gate -->
+  <rect x="380" y="620" width="440" height="105" rx="14" fill="#F9A825" stroke="#E65100" stroke-width="3"/>
+  <text x="600" y="653" text-anchor="middle" font-size="15" font-weight="700" fill="#212121">🟡  &lt;What people decide&gt;</text>
+  <text x="600" y="676" text-anchor="middle" font-size="11" fill="#3E2723">&lt;who fixes what, where&gt;</text>
+  <text x="600" y="692" text-anchor="middle" font-size="11" fill="#3E2723">&lt;what gets re-checked after a fix&gt;</text>
+  <text x="600" y="712" text-anchor="middle" font-size="10" fill="rgba(0,0,0,0.5)">&lt;platform&gt;</text>
+
+  <!-- Rework loop -->
+  <path d="M 380 672 L 150 672 L 150 145 L 376 145" fill="none" stroke="#C62828" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrRed)"/>
+  <text x="138" y="410" text-anchor="middle" font-size="10" font-weight="700" fill="#C62828" transform="rotate(-90 138 410)">fixes come back in and re-check automatically</text>
+
+  <line x1="600" y1="725" x2="600" y2="755" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Outcome -->
+  <rect x="380" y="760" width="440" height="90" rx="14" fill="none" stroke="#2E7D32" stroke-width="3"/>
+  <text x="600" y="795" text-anchor="middle" font-size="15" font-weight="700" fill="#2E7D32">✅  &lt;The outcome the client buys&gt;</text>
+  <text x="600" y="818" text-anchor="middle" font-size="11" fill="#388E3C">&lt;what is now true, and where the proof lives&gt;</text>
+  <text x="600" y="837" text-anchor="middle" font-size="10" fill="#78909C">&lt;platform&gt;</text>
+
+</svg>
+</body>
+</html>
